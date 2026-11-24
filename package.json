@@ -1,0 +1,16 @@
+{
+  "name": "cubekit",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/engine",
+    "packages/solver",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @cubekit/web",
+    "build": "npm run build -w @cubekit/web",
+    "preview": "npm run preview -w @cubekit/web",
+    "test": "node --test \"packages/*/test/*.test.js\""
+  }
+}

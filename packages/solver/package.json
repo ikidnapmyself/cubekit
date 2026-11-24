@@ -1,0 +1,16 @@
+{
+  "name": "@cubekit/solver",
+  "version": "0.1.0",
+  "description": "Kociemba two-phase Rubik's cube solver built on @cubekit/engine.",
+  "type": "module",
+  "exports": "./src/index.js",
+  "bin": {
+    "cubekit-solve": "./bin/solve.js"
+  },
+  "dependencies": {
+    "@cubekit/engine": "*"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

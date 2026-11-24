@@ -1,0 +1,10 @@
+{
+  "name": "@cubekit/engine",
+  "version": "0.1.0",
+  "description": "Rubik's cube model: facelet and cubie representations, move notation, validation.",
+  "type": "module",
+  "exports": "./src/index.js",
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>cubekit</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Cube</h1>
+      <select id="size" aria-label="Cube size">
+        <option value="2">2×2</option>
+        <option value="3" selected>3×3</option>
+        <option value="4">4×4</option>
+        <option value="5">5×5</option>
+        <option value="6">6×6</option>
+        <option value="7">7×7</option>
+      </select>
+      <span id="status" class="status"></span>
+      <span id="solver-status" class="solver-status">Loading solver…</span>
+    </header>
+
+    <main class="layout">
+      <section class="stage">
+        <div id="viewport"></div>
+        <p class="hint">
+          Drag a sticker to turn its layer. Drag the background to orbit.
+          Keys <kbd>U</kbd> <kbd>R</kbd> <kbd>F</kbd> <kbd>D</kbd> <kbd>L</kbd> <kbd>B</kbd> <kbd>M</kbd> <kbd>E</kbd> <kbd>S</kbd> (odd sizes) <kbd>X</kbd> <kbd>Y</kbd> <kbd>Z</kbd>,
+          <kbd>Shift</kbd> for inverse, <kbd>Backspace</kbd> to undo.
+        </p>
+      </section>
+
+      <aside class="panel">
+        <div class="row">
+          <button id="scramble" class="primary" disabled>Scramble</button>
+          <button id="solve" class="primary" disabled>Solve</button>
+          <button id="undo">Undo</button>
+          <button id="reset">Reset</button>
+        </div>
+
+        <div id="scramble-text" class="mono muted"></div>
+
+        <section id="solution-box" class="card" hidden>
+          <div class="card-head">
+            <strong>Solution</strong>
+            <span id="solution-meta" class="muted"></span>
+          </div>
+          <div id="solution" class="chips"></div>
+          <div class="row">
+            <button id="sol-start" title="Back to start">⏮</button>
+            <button id="sol-prev" title="Step back (←)">◀</button>
+            <button id="sol-play" class="primary" title="Play / pause (Space)">Play</button>
+            <button id="sol-next" title="Step forward (→)">▶</button>
+            <button id="sol-end" title="Jump to end">⏭</button>
+          </div>
+        </section>
+
+        <label class="field">
+          <span>Turn speed <output id="speed-out"></output></span>
+          <input id="speed" type="range" min="40" max="600" step="10" value="220" />
+        </label>
+
+        <form id="alg-form" class="field">
+          <span>Algorithm</span>
+          <div class="row">
+            <input id="alg" class="mono" placeholder="R U R' U' (r u) x2 M2" autocomplete="off" spellcheck="false" />
+            <button type="submit">Apply</button>
+          </div>
+          <small id="alg-error" class="error"></small>
+        </form>
+
+        <div id="pad" class="pad"></div>
+
+        <section class="card">
+          <div class="card-head">
+            <strong>Net</strong>
+            <label class="toggle"><input id="edit" type="checkbox" /> Edit colors</label>
+          </div>
+          <div id="palette" class="palette" hidden></div>
+          <div id="net"></div>
+          <small id="edit-error" class="error"></small>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
